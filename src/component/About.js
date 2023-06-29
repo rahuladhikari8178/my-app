@@ -1,32 +1,39 @@
-import React, { useState } from "react";
+import React from "react";
 
 
-export default function About() {
+export default function About(props) {
 
-         const [myStyle, setMyStyle] = useState({
-           color: "black",
-           backgroundColor: "white",
-         });
-         const [btntext, setBtntext] = useState("Enable Dark Mode")
+  let myStyle = {
+    color: props.mode === "dark" ? "white" : "#042743",
+    backgroundColor: props.mode === "dark" ? "rgb(36 74 104)" : "white",
+    
+  }
 
-         const toggleStyle = () =>{
-            if(myStyle.color === "black" ){
-                setMyStyle({
-                  color: "white",
-                  backgroundColor: "black",
-                })
-                setBtntext("Enable Light Mode")
-            }
-            else{
-                 setMyStyle({
-                   color: "black",
-                   backgroundColor: "white",
-                 })
-                 setBtntext("Enable Dark Mode");
-            }
-         }
+
+        //  const [myStyle, setMyStyle] = useState({
+        //    color: "black",
+        //    backgroundColor: "white",
+        //  });
+        //  const [btntext, setBtntext] = useState("Enable Dark Mode")
+
+        //  const toggleStyle = () =>{
+        //     if(myStyle.color === "black" ){
+        //         setMyStyle({
+        //           color: "white",
+        //           backgroundColor: "black",
+        //         })
+        //         setBtntext("Enable Light Mode")
+        //     }
+        //     else{
+        //          setMyStyle({
+        //            color: "black",
+        //            backgroundColor: "white",
+        //          })
+        //          setBtntext("Enable Dark Mode");
+        //     }
+        //  }
   return (
-    <div className="container" style={myStyle}>
+    <div className="container" style={{color: props.mode === "dark" ? "white" : "#042743",}}>
       <h2 className="my-3">About Us</h2>
       <div className="accordion" id="accordionExample">
         <div className="accordion-item">
@@ -40,7 +47,7 @@ export default function About() {
               aria-expanded="true"
               aria-controls="collapseOne"
             >
-              Accordion Item #1
+              <strong> Analyze your text</strong>
             </button>
           </h2>
           <div
@@ -50,14 +57,8 @@ export default function About() {
             data-bs-parent="#accordionExample"
           >
             <div className="accordion-body" style={myStyle}>
-              <strong>This is the first item's accordion body.</strong> It is
-              shown by default, until the collapse plugin adds the appropriate
-              classNamees that we use to style each element. These classNamees
-              control the overall appearance, as well as the showing and hiding
-              via CSS transitions. You can modify any of this with custom CSS or
-              overriding our default variables. It's also worth noting that just
-              about any HTML can go within the <code>.accordion-body</code>,
-              though the transition does limit overflow.
+              Textutils gives you a way to analyze your text quickly and
+              efficiently. Be it word count,characters count or
             </div>
           </div>
         </div>
@@ -72,7 +73,7 @@ export default function About() {
               aria-expanded="false"
               aria-controls="collapseTwo"
             >
-              Accordion Item #2
+              <strong> Free to use</strong>
             </button>
           </h2>
           <div
@@ -82,14 +83,10 @@ export default function About() {
             data-bs-parent="#accordionExample"
           >
             <div className="accordion-body" style={myStyle}>
-              <strong>This is the second item's accordion body.</strong> It is
-              hidden by default, until the collapse plugin adds the appropriate
-              classNamees that we use to style each element. These classNamees
-              control the overall appearance, as well as the showing and hiding
-              via CSS transitions. You can modify any of this with custom CSS or
-              overriding our default variables. It's also worth noting that just
-              about any HTML can go within the <code>.accordion-body</code>,
-              though the transition does limit overflow.
+              Textutils is a free character counter tool that provides instant
+              character countv & word count statistics for a given text.
+              Textutils reports the number of word and characters.Thus it is
+              suitable for writing text with word/character limit.
             </div>
           </div>
         </div>
@@ -104,7 +101,7 @@ export default function About() {
               aria-expanded="false"
               aria-controls="collapseThree"
             >
-              Accordion Item #3
+              <strong>Browser Compatible</strong>
             </button>
           </h2>
           <div
@@ -114,22 +111,14 @@ export default function About() {
             data-bs-parent="#accordionExample"
           >
             <div className="accordion-body" style={myStyle}>
-              <strong>This is the third item's accordion body.</strong> It is
-              hidden by default, until the collapse plugin adds the appropriate
-              classNamees that we use to style each element. These classNamees
-              control the overall appearance, as well as the showing and hiding
-              via CSS transitions. You can modify any of this with custom CSS or
-              overriding our default variables. It's also worth noting that just
-              about any HTML can go within the <code>.accordion-body</code>,
-              though the transition does limit overflow.
+              This word counter software is works in any web Browser such as
+              Chrome,Firefox,Internet Explorer, Safari,Opera. It suits to count
+              character in Facebook,blogs,books,Excel document,pdf document,
+              essasy etc.
             </div>
           </div>
         </div>
       </div>
-      <div className="container my-3"></div>
-      <button onClick={toggleStyle}  type="button" class="btn btn-primary">
-        {btntext}
-      </button>
     </div>
   );
 }
